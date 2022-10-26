@@ -7,6 +7,7 @@ loadBuddies()
 const displayBuddies = data => {
    const buddies = data.results;
    const div = document.getElementById("buddies")
+   // for o loop are used to get specific properties and value
    for(const buddy of buddies){
       const p = document.createElement("p");
       console.log(buddy.name);
