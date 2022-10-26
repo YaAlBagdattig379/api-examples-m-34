@@ -11,7 +11,7 @@ const displayBuddies = data => {
       const p = document.createElement("p");
       console.log(buddy.name);
       // name are set dynamically 
-      p.innerText = `name : ${buddy.name.title} ${buddy.name.last} ${buddy.name.first} `
+      p.innerText = `name : ${buddy.name.title} ${buddy.name.last} ${buddy.name.first}  email : ${buddy.email}`
       div.appendChild(p);
    }
    // console.log(buddies.results);
