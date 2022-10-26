@@ -16,7 +16,7 @@ countries.forEach(country => {
     div.innerHTML = `
          <h3>${country.name}</h3>
          <p>${country.capital}</p>
-         <button onclick="getDetails('${country.name}')">details</button>
+         <button onclick="loadCountryName('${country.name}')">details</button>
     `
         //  <button onclick="getDetails('details')">details</button>
 
@@ -28,7 +28,12 @@ countries.forEach(country => {
     countriesDiv.appendChild(div);
 });
 }
-const getDetails = (details) => {
-    console.log(details);
+const loadCountryName = name => {
+    const url = `https://restcountries.com/v3.1/name/${name}`
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(data => console.log(data))
+    // p.innerText = name
+     console.log(url)
 }
 // console.log('rest countries ')
