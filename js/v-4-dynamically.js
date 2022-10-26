@@ -16,24 +16,31 @@ countries.forEach(country => {
     div.innerHTML = `
          <h3>${country.name}</h3>
          <p>${country.capital}</p>
-         <button onclick="loadCountryName('${country.name}')">details</button>
+         <button onclick="loadCountryByName('${country.name}')">Details</button>
     `
         //  <button onclick="getDetails('details')">details</button>
-
-    // h3.innerText = country.name;
-    // div.appendChild(h3);
-    // const p = document.createElement('p');
-    // p.innerText = country.capital;
-    // div.appendChild(p);
     countriesDiv.appendChild(div);
 });
 }
-const loadCountryName = name => {
-    const url = `https://restcountries.com/v3.1/name/${name}`
-    // fetch(url)
-    // .then(res => res.json())
-    // .then(data => console.log(data))
-    // p.innerText = name
-     console.log(url)
+
+const loadCountryByName = name => {
+    // name are dynamically used 
+    const url = `https://restcountries.com/v3.1/name/${name}`;
+    fetch(url)
+    .then(res => res.json())
+    .then(data => displayCountryDetail(data[0]))
+    // .then(data => console.log(data[0].name))
+    // console.log(url)
 }
-// console.log('rest countries ')
+
+const displayCountryDetail = country =>{
+    const countryDetails = document.getElementById("countrySection");
+    countryDetails.classList.add('countryDetails');
+    countryDetails.innerHTML = `
+    <h4>name :  ${country.name.common}</h4>
+    <h5> population : ${country.population}</h5>
+    <h5>capital : ${country.capital}</h5>
+    <h6>region : ${country.region}</h6>
+    <img width= 50% src="${country.flags.png}" alt="">
+    `
+}
