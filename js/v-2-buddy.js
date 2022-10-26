@@ -6,9 +6,14 @@ const loadBuddies = () => {
 loadBuddies()
 const displayBuddies = data => {
    const buddies = data.results;
+   const div = document.getElementById("buddies")
    for(const buddy of buddies){
-      console.log(buddy.email);
+      const p = document.createElement("p");
+      console.log(buddy.name);
+      // name are set dynamically 
+      p.innerText = `name : ${buddy.name.title} ${buddy.name.last} ${buddy.name.first} `
+      div.appendChild(p);
    }
-//    console.log(data.results);
+   // console.log(buddies.results);
 }
-console.log("hello ! how are you all ?")
+// console.log("hello ! how are you all ?")
