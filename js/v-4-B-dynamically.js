@@ -24,7 +24,6 @@ countries.forEach(country => {
     <h3>popultion :  ${country.population}</h3>
     <button onclick="loadCountryByName('${country.name}')">Detail</button>
     `// <button onclick="loadCountryByName('double single comma mandatory ')">Detail</button>
-   
     section.appendChild(div);
 });
 }
