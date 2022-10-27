@@ -1,0 +1,12 @@
+.countryDetailsCls{
+    border: 3px solid green;padding: 5px;margin: 5px;width: 50%;
+    text-align: center;
+}
+.styleByClass{
+    border: 3px solid wheat;
+    padding: 10px;margin: 10px;
+}
+#Section{
+    display: grid;
+    grid-template-columns: repeat(4,1fr);
+}
