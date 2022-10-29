@@ -37,6 +37,7 @@ const displayResults = meals =>{
 
 // show card details 
 const showCardDetails = cardDetail => {
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${cardDetail}`
     // www.themealdb.com/api/json/v1/1/lookup.php?i=52772
-    console.log(cardDetail)
+    console.log(url);
 }
