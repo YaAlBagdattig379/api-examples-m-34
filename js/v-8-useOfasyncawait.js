@@ -1,4 +1,5 @@
 const searchFood =() =>{
+    // debugger;
     const  inputField = document.getElementById("search-field");
     const inputText = inputField.value;
     inputField.value = '';
@@ -7,34 +8,17 @@ const searchFood =() =>{
     if(inputText == 0){
         const divNotFount = document.createElement("div");
         divNotFount.innerHTML = ` 
-        <h1 class="text-color:red;">sorry,  you have to type something to get meals !</h1>
+        <h1 class="text-warning;">sorry, results is not found !</h1>
         `
         notFoundResults.appendChild(divNotFount);
-        // sorry,  result is not found !
     }
-    else if(inputText != -1){
-            const divNotFount = document.createElement("div");
-            divNotFount.innerHTML = ` 
-            <h1 class="text-color:red;">sorry,  results is not found !</h1>
-            `
-            notFoundResults.appendChild(divNotFount);
-            // sorry,  result is not found !
-    }
-   // type  load data from this website by name 
-    //insert 'inputText' instead of'Arrabiata' by dynamically to get specific data 
-    // const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}
-    // `
-    // fetch(url)
-    // .then(res => res.json())
-    // .then(data => displayResults(data.meals))
+
     else{
-    // type  load data from this website by name 
-    //insert 'inputText' instead of'Arrabiata' by dynamically to get specific data 
-    const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}
-    `
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displayResults(data.meals))
+        const url = `https://www.themealdb.com/api/json/v1/1/search.php?s=${inputText}
+        `
+        fetch(url)
+        .then(res => res.json())
+        .then(data => displayResults(data.meals))
     }
  
 }
@@ -66,16 +50,19 @@ const displayResults = meals =>{
 }
 // v-7
 // show card details by name id 
-const loadMealDetails = data =>{
-    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${data}
+const loadMealDetails = async idMeal =>{
+    const url = `https://www.themealdb.com/api/json/v1/1/lookup.php?i=${idMeal}
     `
-    fetch(url)
-    .then(res => res.json())
-    .then(data => displaySingleMeal(data.meals[0]))
+    const res = await fetch(url);
+    const data = await res.json();
+    displaySingleMeal(data.meals[0]);
+    // fetch(url)
+    // .then(res => res.json())
+    // .then(data => displaySingleMeal(data.meals[0]))
     //  console.log(url)
 } 
 const displaySingleMeal = meal =>{
-    console.log(meal);
+    // console.log(meal);
     const displayMeal = document.getElementById("show-mealDetails");
     displayMeal.textContent = ''; 
     // displayMeal.innerHTML = ''; 
