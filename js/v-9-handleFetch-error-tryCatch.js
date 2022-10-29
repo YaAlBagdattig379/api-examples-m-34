@@ -82,3 +82,10 @@ const displaySingleMeal = meal =>{
     `;
     displayMeal.appendChild(div);
 } 
+
+
+
+
+/*
+ you have to understand deeply use of  try and catch .....fetch and async await 
+*/    
