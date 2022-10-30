@@ -85,7 +85,6 @@ const displaySingleMeal = meal =>{
 
 
 
-
 /*
  you have to understand deeply use of  try and catch .....fetch and async await 
 */    
